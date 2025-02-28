@@ -4,15 +4,17 @@
     {
       "name": "jinaWebsiteReader",
       "url": "https://chat-plugin-jina.aloxaf.com/api/v1",
-      "description": "Extract content from web links and convert to Markdown",
+      "description": "提取网页内容",
       "parameters": {
         "properties": {
           "url": {
-            "description": "Website URL",
+            "description": "网页链接",
             "type": "string"
           }
         },
-        "required": ["url"],
+        "required": [
+          "url"
+        ],
         "type": "object"
       }
     }
@@ -23,13 +25,18 @@
   "identifier": "chat-plugin-jina",
   "meta": {
     "avatar": "https://chat-plugin-jina.aloxaf.com/jina.webp",
-    "tags": ["web", "content-crawler"],
+    "tags": [
+      "web",
+      "content-crawler"
+    ],
     "title": "Jina",
-    "description": "使用 Jina 转换网页内容为 Markdown 格式"
+    "description": "Extract content from web links via Jina Reader"
   },
   "settings": {
     "type": "object",
-    "required": ["JINA_API_KEY"],
+    "required": [
+      "JINA_API_KEY"
+    ],
     "properties": {
       "JINA_API_KEY": {
         "type": "string",

@@ -13,7 +13,7 @@ app.post('/api/v1', async (c) => {
   const headers: HeadersInit = {}
 
   const settings = getPluginSettingsFromRequest(c.req.raw)
-  const apiKey = settings?.apikey;
+  const apiKey = settings?.JINA_API_KEY;
   if (apiKey) {
     headers['Authorization'] = `Bearer ${apiKey}`
   }
