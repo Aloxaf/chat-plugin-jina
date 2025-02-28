@@ -1,0 +1,43 @@
+{
+  "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
+  "api": [
+    {
+      "name": "jinaWebsiteReader",
+      "url": "https://chat-plugin-jina.aloxaf.com/api/v1",
+      "description": "提取网页内容并转为 Markdown 格式",
+      "parameters": {
+        "properties": {
+          "url": {
+            "description": "网页链接",
+            "type": "string"
+          }
+        },
+        "required": ["url"],
+        "type": "object"
+      }
+    }
+  ],
+  "author": "Aloxaf",
+  "createdAt": "2025-02-28",
+  "homepage": "https://github.com/Aloxaf/chat-plugin-jina",
+  "identifier": "chat-plugin-jina",
+  "meta": {
+    "avatar": "🕸",
+    "tags": ["web", "content-crawler"],
+    "title": "Jina Website Reader",
+    "description": "Extract content from web links and convert to Markdown format"
+  },
+  "settings": {
+    "type": "object",
+    "required": ["JINA_API_KEY"],
+    "properties": {
+      "JINA_API_KEY": {
+        "type": "string",
+        "title": "Jina API Key",
+        "description": "Your [Jina](https://jina.ai) API Key",
+        "format": "password"
+      }
+    }
+  },
+  "version": "1"
+}

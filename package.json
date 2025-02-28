@@ -1,15 +1,16 @@
 {
-	"name": "chat-plugin-jina",
-	"scripts": {
-		"dev": "wrangler dev",
-		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
-	},
-	"dependencies": {
-		"hono": "^4.7.2"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250224.0",
-		"wrangler": "^3.111.0"
-	}
+  "name": "chat-plugin-jina",
+  "scripts": {
+    "dev": "wrangler pages dev",
+    "deploy": "wrangler pages deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "@lobehub/chat-plugin-sdk": "^1.32.4",
+    "hono": "^4.7.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250224.0",
+    "wrangler": "^3.111.0"
+  }
 }
