@@ -9,24 +9,34 @@ import { handle } from 'hono/cloudflare-pages';
 
 const app = new Hono();
 
-app.get('/api/v1', async (c) => {
+app.post('/api/v1', async (c) => {
+  const headers: HeadersInit = {}
+
   const settings = getPluginSettingsFromRequest(c.req.raw)
   const apiKey = settings?.apikey;
-  if (!apiKey) {
-    return createErrorResponse(PluginErrorType.PluginSettingsInvalid, {
-      message: 'API key is required'
-    });
+  if (apiKey) {
+    headers['Authorization'] = `Bearer ${apiKey}`
   }
 
-  const url = c.req.json();
+  const { url } = await c.req.json();
   const response = await fetch(`https://r.jina.ai/${url}`, {
     method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-    },
+    headers
   })
-  const text = await response.text();
 
+  if (!response.ok) {
+    if (response.status === 429 && !apiKey) {
+      return createErrorResponse(PluginErrorType.PluginSettingsInvalid, {
+        message: 'Rate limit exceeded. Please provide your API key.'
+      });
+    } else {
+      return createErrorResponse(PluginErrorType.PluginServerError, {
+        message: `Failed to fetch data from Jina AI: ${response.statusText}`
+      });
+    }
+  }
+
+  const text = await response.text();
   return c.text(text)
 });
 
