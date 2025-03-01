@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@lobehub/chat-plugin-sdk/schema.json",
   "api": [
     {
-      "name": "jinaWebsiteReader",
+      "name": "websiteReader",
       "url": "https://chat-plugin-jina.aloxaf.com/api/v1",
       "description": "提取网页内容",
       "parameters": {
