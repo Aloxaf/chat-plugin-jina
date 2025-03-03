@@ -3,7 +3,7 @@
   "api": [
     {
       "name": "multiWebReader",
-      "url": "https://chat-plugin-jina.aloxaf.com/api/v2/multiWebReader",
+      "url": "https://develop.chat-plugin-jina.pages.dev/api/v2/multiWebReader",
       "description": "提取网页内容",
       "parameters": {
         "properties": {
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/Aloxaf/chat-plugin-jina",
   "identifier": "jina",
   "meta": {
-    "avatar": "https://chat-plugin-jina.aloxaf.com/jina.webp",
+    "avatar": "https://develop.chat-plugin-jina.pages.dev/jina.webp",
     "tags": ["web", "content-crawler"],
     "title": "Jina",
     "description": "Extract content from web links via Jina Reader"
